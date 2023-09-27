@@ -62,8 +62,8 @@
 	};
 </script>
  <body style="background-image: url({PUBLIC_BACKGROUND_URL});">
-	<div class="parent">
-  <img class="image1" src="https://cdn.glitch.global/187f9a90-a558-4ef0-ae51-13196c7d5a01/mgm_logo.jpg?v=1695244922958" alt="mgm_heading"/>
+	<div class="parent" style="background-color: #ffffff">
+  <img class="image1" src="https://ewscripps.brightspotcdn.com/dims4/default/51444da/2147483647/strip/true/crop/640x360+0+13/resize/1280x720!/quality/90/?url=https%3A%2F%2Fsharing.ktnv.com%2Fsharescnn%2Fphoto%2F2015%2F09%2F08%2Fmgm_resorts_international_logo_23715263_ver1.0_640_480.jpg" alt="mgm_heading"/>
 </div>
 	<button class="primary" on:click={() => showDialogClick()}>Schedule an appointment</button>
 	<dialog id="main-dialog">

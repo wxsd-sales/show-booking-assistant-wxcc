@@ -40,9 +40,9 @@ async function roomBooking(startTime, title) {
       Bookings: [
         {
           Id: "1",
-          Number: "rkanthet@cisco.com",
+          Number: "phoenix_focus_room@minerdemo.rooms.webex.com",
           Organizer: {
-            Name: "Rajitha Kantheti",
+            Name: "MGM Resorts",
           },
           Protocol: "Spark",
           MeetingPlatform: "Webex",
