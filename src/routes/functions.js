@@ -1,18 +1,11 @@
-import consultants from "./consultants.json";
 import axios from "axios";
-import {
-  PUBLIC_WEBHOOK_URL,
-  PUBLIC_CALL_WEBHOOK_URL,
-  PUBLIC_DEVICE_ID,
-  PUBLIC_BOOKINGS_URL,
-  PUBLIC_ACCESS_TOKEN,
-} from "$env/static/public";
+import { PUBLIC_WEBHOOK_URL } from "$env/static/public";
 
-async function sendMessage(link, number, method) {
+async function sendMessage(name, number, showName) {
   const body = {
     number: number,
-    message: link,
-    method: method,
+    name: name,
+    showName: showName,
   };
   console.log(body);
   await axios.post(PUBLIC_WEBHOOK_URL, body).catch((e) => {
@@ -21,55 +14,4 @@ async function sendMessage(link, number, method) {
   });
 }
 
-async function call(link, number) {
-  const body = {
-    phone_number: number,
-    message: link,
-  };
-  console.log(body);
-  await axios.post(PUBLIC_CALL_WEBHOOK_URL, body).catch((e) => {
-    console.log("Error in sending message:");
-    console.log(e);
-  });
-}
-
-async function roomBooking(startTime, title) {
-  const body = {
-    deviceId: PUBLIC_DEVICE_ID,
-    body: {
-      Bookings: [
-        {
-          Id: "1",
-          Number: "phoenix_focus_room@minerdemo.rooms.webex.com",
-          Organizer: {
-            Name: "MGM Resorts",
-          },
-          Protocol: "Spark",
-          MeetingPlatform: "Webex",
-          Time: {
-            Duration: 60,
-            EndTimeBuffer: 50,
-            StartTime: startTime,
-          },
-          Title: title,
-        },
-      ],
-    },
-  };
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${PUBLIC_ACCESS_TOKEN}`,
-  };
-  console.log(body);
-  await axios
-    .post(PUBLIC_BOOKINGS_URL, body, {
-      headers: headers,
-    })
-    .then((r) => console.log("booking resp", r))
-    .catch((e) => {
-      console.log("Error in sending message:");
-      console.log(e);
-    });
-}
-
-export { sendMessage, call, roomBooking };
+export { sendMessage };

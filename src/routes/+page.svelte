@@ -1,14 +1,12 @@
 <script>
 	import { onMount } from 'svelte';
-	import consultants from "./consultants.json";
-	import {sendMessage, call, roomBooking} from './functions';
+	import {sendMessage} from './functions';
 	import SveltyPicker from 'svelty-picker';
 	import {PUBLIC_BACKGROUND_URL} from '$env/static/public';
 
 	let dialog, confDialog;
 	let currentDate = new Date();
 	onMount( () => {
-		document.getElementById("date").setAttribute("min", new Date().toISOString().split("T")[0]);
 		dialog = document.getElementById('main-dialog');
 		confDialog = document.getElementById('confirmation-dialog');
 	})
@@ -22,28 +20,9 @@
 			data[key] = value;
 		}
 		console.log(data)
-		let timestamp = new Date(`${data.date} ${data.time}`).toISOString()
-		await roomBooking(timestamp,`Meet with ${data.name}`)
-		console.log(currentDate)
-		var x = new Date(data.date+" "+data.time+":00");
-		let seconds = Math.abs(x.getTime() - currentDate.getTime())/1000;
-		console.log(seconds)
-		if(seconds-300<0){
-			seconds=0;
-		}
-		else{
-			seconds=seconds-300
-		}
-		console.log(seconds)
-		if(data.notification.toLowerCase()=='call'){
-			call(`Thanks for scheduling an appointment with MGM. Your desk will be ready on ${data.date} at ${data.time}`, data.phone);
-		}
-		else{
-		sendMessage(`Thanks for scheduling an appointment with MGM. Your desk will be ready on ${data.date} at ${data.time}`, data.phone, data.notification.toLowerCase());
-		}
+		await sendMessage(data.name,data.phone,data.show)
 		e.target.reset();
 		closeClick();
-		showConfDialogClick();
 	}
 
 	const showConfDialogClick = () => {
@@ -63,12 +42,12 @@
 </script>
  <body style="background-image: url({PUBLIC_BACKGROUND_URL});">
 	<div class="parent" style="background-color: #ffffff">
-  <img class="image1" src="https://ewscripps.brightspotcdn.com/dims4/default/51444da/2147483647/strip/true/crop/640x360+0+13/resize/1280x720!/quality/90/?url=https%3A%2F%2Fsharing.ktnv.com%2Fsharescnn%2Fphoto%2F2015%2F09%2F08%2Fmgm_resorts_international_logo_23715263_ver1.0_640_480.jpg" alt="mgm_heading"/>
+  <img class="image1" src="https://cdn.glitch.global/9d61d6d3-fe2d-454a-8661-2a5ac9778baa/Screenshot_20231004-094143_Chrome(1).jpg?v=1697030429173" alt="mgm_heading"/>
 </div>
-	<button class="primary" on:click={() => showDialogClick()}>Schedule an appointment</button>
+	<button class="primary"  on:click={() => showDialogClick()}>Book a Show!</button>
 	<dialog id="main-dialog">
 		<form class="content" on:submit|preventDefault={onSubmit}>
-			<h4><b>Schedule an appointment</b></h4>
+			<h4><b>Book a Show!</b></h4>
 
 			<hr class="solid">
 			<div class="field">
@@ -84,33 +63,24 @@
 				</div>
 			</div>
 			<div class="field">
-			<label class="label" for="dateLabel">Select Date</label>
-			<input class="input bulmaCalendar" id="date" name="date" type="date" data-display-mode="inline" data-color="grey" required>
-			</div>
-			<div class="field">
-			<label class="label" for="timeLabel">Select Time</label>
-			<SveltyPicker inputClasses="w3-input w3-border" startDate="07:00" endDate="23:00" placeholder="--:-- --" required=true inputId="time" name="time" format="hh:ii" displayFormat="HH:ii P"/>
-
-			<small>Office hours are 9am to 6pm</small>
-			</div>
-			<div class="field">
-			<label class="label" for="notLabel">Select Notification Method</label>
+			<label class="label" for="notLabel">Select a Show</label>
 			<div class="select is-fullwidth" >
-				<select name="notification" id="notification" required>
+				<select name="show" id="show" required>
 					
-					<option>SMS</option>
-					<option>Call</option>
-					<option>WhatsApp</option>
+					<option>Comedy Club</option>
+					<option>David Copperfield Show</option>
+					<option>Magic Show</option>
+					<option>The Hunger Games:Exhibition</option>
 				</select>
 			</div>
 			</div>
 			<hr class="solid">
 			<div class="columns is-multiline is-mobile">
 				<div class="column">
-					<button type="submit" class="button is-success is-rounded is-fullwidth" >Submit</button>
+					<button class="button is-success is-rounded is-fullwidth" >Submit</button>
 				</div>
 				<div class="column">
-					<button type="reset" class="button is-danger is-outlined is-rounded is-fullwidth" on:click={closeClick}>Cancel</button>
+					<button type="submit" class="button is-danger is-outlined is-rounded is-fullwidth">Cancel</button>
 				</div>
 			</div>
 		</form>
@@ -162,12 +132,21 @@
 		top: 0;
 		right:0;     
     }
+	.custom-primary {
+  background-color: #00012a;
+  color: white;
+}
 	.primary{
 		position: absolute;
-		right:    0;
-		bottom:   0;
+		margin-left:-10px;
+   left:12%;
+   margin-right:-10px;
+   right:12%;
+   margin-bottom:-8px;
+   bottom:8%;
+   width:80%;
 		margin-right:3rem;
-		background-color: #9abfb5;
+		background-color: #00012a;
 		border-radius: 12px;
 		border: none;
 		color: white;
