@@ -107,7 +107,7 @@ When the customer looks to book a show, but doesn't complete the booking, we tra
 
 ## License
 
-All contents are licensed under the MIT license. Please see [license](LICENSE) for details.
+All contents are licensed under the MIT license. Please see [license](LICENSE.txt) for details.
 
 
 ## Disclaimer
