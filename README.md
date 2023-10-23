@@ -34,6 +34,7 @@ When the customer looks to book a show, but doesn't complete the booking, we tra
 ### Prerequisites & Dependencies: 
 
 - Webex Connect Sandbox - Available to setup here: https://imimobile.com/products/webex-connect/sandbox
+- Webex ORG with Webex Contact Center service enabled - You can ask for a Developer Sandbox here: https://developer.webex-cx.com/sandbox
 
 ### Setup JDS
 
