@@ -163,6 +163,8 @@ Go to the WxCC management portal, create a new Desktop Layouy and associate it t
    
 ![flow_settings](https://github.com/wxsd-sales/show-booking-assistant-wxcc/assets/85897512/cf7ceeae-43f8-432a-a7eb-3cbc1db7ed6b)
 
+For ``myToken`` you can use the same personal token you used in postman, the one you can find signing in the [Webex Contact Center for Developers portal](https://developer.webex-cx.com/)
+
 7. Save the flow changes and click make live.
 
 ## Installation
