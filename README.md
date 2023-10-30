@@ -120,7 +120,7 @@ If everything went well you should now see a new entry in Control Hub:
 
 Download this [WxCC Desktop Layout file](https://github.com/wxsd-sales/show-booking-assistant-wxcc/blob/main/JDS%20Example%20Desktop%20Layout.json), open it with your favorite editor, search for 'project-id' and replace 'ENTER_YOUR_PROJECT_ID_HERE' with your project ID twice (lines 122 and 291). You also need to search for 'organizationId' and replace 'HARD CODE YOUR CH ORG ID HERE!' with your Webex ORG Id (line 291).
 
-Go to the WxCC management portal, create a new Desktop Layouy and associate it to one of our Teams. Now you log in as an agent from this team log in WxCC desktop, you should be able to see the JDS widget:
+Go to the WxCC management portal, create a new Desktop Layouy and associate it to one of our Teams. Now you log as an agent from this team in WxCC desktop, you should be able to see the JDS widget:
 
 <img width="477" alt="image" src="https://github.com/wxsd-sales/show-booking-assistant-wxcc/assets/22101144/65a673b4-9c0f-4350-b10d-01a44e911e85">
 
