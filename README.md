@@ -4,8 +4,9 @@ This demo helps user with bookings using SMS. If the user has any additional que
  
 
 <p align="center">
-   <a href="https://app.vidcast.io/share/5abac9ec-8bb7-4f73-9c5f-fa8e9e2d4643" target="_blank">
-       <img src="virtual_assist.png" alt="virtaul-scheduling-assistant-demo"  width="100%" height="100%"/>
+   <a href="https://app.vidcast.io/share/6c641936-e4df-4d31-b9f5-41e551296133" target="_blank">
+       <img src="https://github.com/wxsd-sales/show-booking-assistant-wxcc/assets/85897512/1b64244e-46af-4090-9f97-25a13ec6a26c" alt="virtaul-scheduling-assistant-demo"  width="100%" height="100%"/>
+
     </a>
 </p>
 
